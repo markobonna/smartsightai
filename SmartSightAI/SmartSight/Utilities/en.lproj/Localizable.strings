@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  SmartSight
+
+  Created by MarkF on 3/17/23.
+*/
+
+
+// Main View
+"Navigation" = "Navigation";
+"Text Reader" = "Text Reader";
+"Chat" = "Chat";
+"Wishlist" = "Wishlist";
+"Environment Reader" = "Environment Reader";
+"Settings" = "Settings";
+
+// Setting View
+"Membership" = "Member ship";
+"Agreement on sending recorded video" = "Agreement on sending recorded video";
+
+"Terms of arrangement" = "Terms of arrangement";
+"Privacy" = "Privacy";
+"License" = "License";
+"Contact Us" = "Contact Us";
+"error" = "error";
+"SPEAKING RATE" = "SPEAKING RATE";
+
+// Button Text
+"Reset door recognition" = "Reset door recognition";
+"Text recognition" = "Text recognition";
+"메인 화면으로" = "Go to home screen";
