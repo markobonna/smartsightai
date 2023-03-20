@@ -1,0 +1,6 @@
+TTS
+numPy==1.21
+openai
+openai-whisper
+gradio
+
