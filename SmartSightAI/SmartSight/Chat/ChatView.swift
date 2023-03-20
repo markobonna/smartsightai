@@ -25,8 +25,8 @@ class ChatView: UIViewController, ImageAnalysisInteractionDelegate, UIGestureRec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load the www.bing.com website
-               if let url = URL(string: "https://6a70fa50c0efa13b94.gradio.live") {
+        // Load your Gradio Link
+               if let url = URL(string: "https://121dd02734c2182799.gradio.live") {
                    let request = URLRequest(url: url)
                    webView.load(request)
                }
