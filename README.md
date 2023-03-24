@@ -8,9 +8,19 @@ This project was built for the Estee Lauder Companies Accessible Beauty Hackatho
 
 ## Product Demo
 
-[![Youtube Demo](/Demo/youtube.png")](https://youtu.be/iNHpQZpbA90)
+Youtube Video Demo: https://youtu.be/iNHpQZpbA90
 
 ## Product Screenshots
+
+Main Page ![Main Page](Demo/applanding.jpeg)
+
+Navigator ![Navigator](Demo/navigator.jpg)
+
+Text Reader ![Text Reader](Demo/textreader.jpg)
+
+Chat ![Chat](Demo/chat.jpg)
+
+Wishlist ![Wishliste](Demo/wishlist.jpg)
 
 # Tech Stack
 
