@@ -24,8 +24,9 @@
 		4DD509532935B13600AE2766 /* DeepSORT in Resources */ = {isa = PBXBuildFile; fileRef = 4DD509522935B13600AE2766 /* DeepSORT */; };
 		794FC9A2291D364200F9B6C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 794FC9A4291D364200F9B6C2 /* Localizable.strings */; };
 		794FC9A7291D36B700F9B6C2 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794FC9A6291D36B700F9B6C2 /* StringExtension.swift */; };
+		D93BEE2A29CE5D1000EB8E5A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BEE2929CE5D1000EB8E5A /* RootView.swift */; };
+		D93BEE2E29CE622A00EB8E5A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BEE2D29CE622900EB8E5A /* MainView.swift */; };
 		D9E10FE429C7B575004B0CB1 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E10FE329C7B575004B0CB1 /* ChatView.swift */; };
-		D9E10FE729C7B5BB004B0CB1 /* XWishlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E10FE629C7B5BB004B0CB1 /* XWishlistView.swift */; };
 		D9E1100729C8C95D004B0CB1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E10FF129C8C95C004B0CB1 /* CardView.swift */; };
 		D9E1100829C8C95D004B0CB1 /* WishlistCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E10FF229C8C95C004B0CB1 /* WishlistCard.swift */; };
 		D9E1100929C8C95D004B0CB1 /* WishlistItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9E10FF429C8C95C004B0CB1 /* WishlistItem.xcdatamodeld */; };
@@ -66,9 +67,10 @@
 		4DD509522935B13600AE2766 /* DeepSORT */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DeepSORT; sourceTree = "<group>"; };
 		794FC9A3291D364200F9B6C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		794FC9A6291D36B700F9B6C2 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		D93BEE2929CE5D1000EB8E5A /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		D93BEE2D29CE622900EB8E5A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D95377FE29C6AE15006815D6 /* SmartSight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartSight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E10FE329C7B575004B0CB1 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		D9E10FE629C7B5BB004B0CB1 /* XWishlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XWishlistView.swift; sourceTree = "<group>"; };
 		D9E10FF129C8C95C004B0CB1 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		D9E10FF229C8C95C004B0CB1 /* WishlistCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistCard.swift; sourceTree = "<group>"; };
 		D9E10FF529C8C95C004B0CB1 /* WishlistItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WishlistItem.xcdatamodel; sourceTree = "<group>"; };
@@ -179,8 +181,12 @@
 				D9E10FE229C7B497004B0CB1 /* Chat */,
 				4296A68A28F7EB2200E769AE /* SmartSight.entitlements */,
 				D9E10FEB29C8C95C004B0CB1 /* Wishlist */,
+				D9E10FF329C8C95C004B0CB1 /* Data */,
 				4DB71CA928EF7D4900A0E21A /* AppDelegate.swift */,
+				D9E10FF029C8C95C004B0CB1 /* SubView */,
 				4DB71CAB28EF7D4900A0E21A /* SceneDelegate.swift */,
+				D93BEE2929CE5D1000EB8E5A /* RootView.swift */,
+				D93BEE2D29CE622900EB8E5A /* MainView.swift */,
 				4DB71CB228EF7D4A00A0E21A /* Assets.xcassets */,
 				FED8C3C4291CFF310028F659 /* Assets.scnassets */,
 				4DB71CB728EF7D4A00A0E21A /* Info.plist */,
@@ -213,9 +219,6 @@
 				D9E1100129C8C95C004B0CB1 /* CreateWishGroup.swift */,
 				D9E1100229C8C95C004B0CB1 /* ItemsView.swift */,
 				D9E1100329C8C95C004B0CB1 /* WishlistView.swift */,
-				D9E10FE629C7B5BB004B0CB1 /* XWishlistView.swift */,
-				D9E10FF029C8C95C004B0CB1 /* SubView */,
-				D9E10FF329C8C95C004B0CB1 /* Data */,
 			);
 			path = Wishlist;
 			sourceTree = "<group>";
@@ -323,8 +326,9 @@
 				4D5D87ED291BB98B0024C16D /* UIImage_CVPixelBufferTool.swift in Sources */,
 				D9E1100B29C8C95D004B0CB1 /* EnviromentVars.swift in Sources */,
 				4D5D87F3291BBA8E0024C16D /* ObjectDetectionViewController.swift in Sources */,
-				D9E10FE729C7B5BB004B0CB1 /* XWishlistView.swift in Sources */,
+				D93BEE2E29CE622A00EB8E5A /* MainView.swift in Sources */,
 				D9E1101129C8C95D004B0CB1 /* MyListView.swift in Sources */,
+				D93BEE2A29CE5D1000EB8E5A /* RootView.swift in Sources */,
 				FE1997F1290A77C2001DA2CF /* SettingViewController.swift in Sources */,
 				D9E1100E29C8C95D004B0CB1 /* Account.swift in Sources */,
 				D9E1100929C8C95D004B0CB1 /* WishlistItem.xcdatamodeld in Sources */,

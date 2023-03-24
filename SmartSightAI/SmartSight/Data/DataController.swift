@@ -7,10 +7,16 @@
 
 import CoreData
 import Foundation
+import UIKit
 
 class DataController: ObservableObject {
     //Tells Coredata we want to use the bookwork data model
     let container = NSPersistentContainer(name: "WishlistItem")
+    
+    var viewContext: NSManagedObjectContext {
+        return container.viewContext
+    }
+
     
     init(){
         container.loadPersistentStores { description, error in
@@ -20,4 +26,3 @@ class DataController: ObservableObject {
         }
     }
 }
-

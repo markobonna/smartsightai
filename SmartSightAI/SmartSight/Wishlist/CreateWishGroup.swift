@@ -36,10 +36,3 @@ struct CreateWishGroup: View {
         }
     }
 }
-
-struct CreateWishGroup_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateWishGroup()
-            .environmentObject(EnviromentVars())
-    }
-}

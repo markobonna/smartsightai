@@ -10,14 +10,24 @@ import Foundation
 import AVFoundation
 import Vision
 import ARKit
+import CoreData
+import SwiftUI
 
 public let languageSetting = Locale.current.language.languageCode!.identifier
 let supportLiDAR = ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh)
 
 class MainViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
-    //var healthKitManager = HealthKitManager()
+    let managedObjectContext: NSManagedObjectContext
+
+        init(managedObjectContext: NSManagedObjectContext) {
+            self.managedObjectContext = managedObjectContext
+            super.init(nibName: nil, bundle: nil)
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     
-    /// Variable for UI changing
     var selected = 0
 
     /// Variable for UI Button

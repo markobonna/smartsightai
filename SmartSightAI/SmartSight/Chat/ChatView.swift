@@ -26,7 +26,7 @@ class ChatView: UIViewController, ImageAnalysisInteractionDelegate, UIGestureRec
         super.viewDidLoad()
         
         // Load your Gradio Link
-               if let url = URL(string: "https://121dd02734c2182799.gradio.live") {
+               if let url = URL(string: "https://695996b852d42ff920.gradio.live") {
                    let request = URLRequest(url: url)
                    webView.load(request)
                }

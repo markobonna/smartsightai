@@ -97,7 +97,7 @@ struct CreateListView: View {
                     .padding(10)
                     
                     
-                    if(itemName != "" && itemPrice != ""){
+                    if(itemName != "" ){
                         //Create Wishlist Button
                         Button(action:{
                             //Adds the item to your wishlist

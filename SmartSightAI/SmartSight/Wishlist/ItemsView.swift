@@ -6,13 +6,15 @@
 //  Copyright © 2023 Gouda Studios. All rights reserved.
 //
 
+import UIKit
 import SwiftUI
+import CoreData
 
 struct ItemsView: View {
     @State var createNew: Bool = false
     @State var presentAlert: Bool = false
     @FetchRequest(sortDescriptors: []) var items: FetchedResults<Item>
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     
     @EnvironmentObject var data: EnviromentVars
@@ -21,10 +23,10 @@ struct ItemsView: View {
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(moc.delete)
+            offsets.map { items[$0] }.forEach(managedObjectContext.delete)
             
             do {
-                try moc.save()
+                try managedObjectContext.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -59,7 +61,7 @@ struct ItemsView: View {
                             Image(systemName: "plus")
                         })
                         .sheet(isPresented: $createNew){
-                            CreateListView()
+                            CreateListView(managedObjectContext:managedObjectContext)
                         }
                     }
                     
@@ -92,10 +94,3 @@ struct ItemsView: View {
 }
 
 
-
-struct ItemsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemsView()
-            .environmentObject(EnviromentVars())
-    }
-}

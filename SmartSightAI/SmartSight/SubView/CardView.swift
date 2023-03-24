@@ -6,11 +6,13 @@
 //  Copyright © 2023 Gouda Studios. All rights reserved.
 //
 
+import UIKit
 import SwiftUI
+import CoreData
 
 struct CardView: View {    
     @FetchRequest(sortDescriptors: []) var items: FetchedResults<Item>
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     var itemName: String
     var itemPrice: String

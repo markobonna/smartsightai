@@ -8,8 +8,12 @@
 
 import SwiftUI
 import PhotosUI
+import CoreData
+import UIKit
+
 
 struct CreateListView: View {
+    var managedObjectContext: NSManagedObjectContext
     @State var itemName = ""
     @State var itemPrice = ""
     @State var itemPicture = ""
@@ -17,12 +21,12 @@ struct CreateListView: View {
     @State var itemCurr = "USD"
     @State var itemDesc = ""
     
+    
     let currency = ["USD", "EUR", "JPY", "GBP"]
     
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
     
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -33,6 +37,30 @@ struct CreateListView: View {
             ScrollView(.vertical, showsIndicators: false){
                 //Stack for all the fields
                 VStack{
+                    if(itemName != ""){
+                        Group {
+                            Button(action: {
+                                let newItem = Item(context: managedObjectContext)
+                                newItem.id = UUID()
+                                newItem.name = itemName
+                                newItem.price = itemPrice
+                                newItem.currency = itemCurr
+                                newItem.link = itemLink
+                                newItem.desc = itemDesc
+                                newItem.picture = selectedImageData
+                                
+                                try? managedObjectContext.save()
+                                
+                                presentationMode.wrappedValue.dismiss()
+                            }, label: {
+                                Text("Create")
+                            })
+                            .padding(10)
+                            .background(Color.blue)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(10)
+                        }
+                    }
                     // Item Name Field
                     TextField("Item Name - Required", text: $itemName)
                         .padding(10) //Padding inside the border
@@ -98,34 +126,7 @@ struct CreateListView: View {
                     .padding(10)
                     
                     
-                    if(itemName != "" && itemPrice != ""){
-                        //Create Wishlist Button
-                        Button(action:{
-                            //Adds the item to your wishlist
-                            let newItem = Item(context: moc)
-                            newItem.id = UUID()
-                            newItem.name = itemName
-                            newItem.price = itemPrice
-                            newItem.currency = itemCurr
-                            newItem.link = itemLink
-                            newItem.desc = itemDesc
-                            newItem.picture = selectedImageData
-                            
-                            try? moc.save()
-                            
-                            //Hides the create view
-                            presentationMode.wrappedValue.dismiss()
-                            
-                            
-                        }, label:{
-                            Text("Create")
-                        })
-                        .padding(10)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
                     }
-                }
                 .padding(20)
                 .padding(.top, 30)
             }

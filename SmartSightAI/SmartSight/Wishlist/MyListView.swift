@@ -2,37 +2,29 @@
 //  MyListView.swift
 //  SmartSight
 //
-//  Created by MarkF on 3/19/23.
-//  Copyright © 2023 Gouda Studios. All rights reserved.
+//  Created by MarkF on 3/17/23.
 //
 
+import UIKit
 import SwiftUI
+import CoreData
+
 
 struct MyListView: View {
     @State var createNew: Bool = false
     @State var presentAlert: Bool = false
     @FetchRequest(sortDescriptors: []) var items: FetchedResults<Item>
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var managedObjectContext
     
-    
-    @EnvironmentObject var data: EnviromentVars
-    
-    @State var wishlistTitle: String = ""
-    
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(moc.delete)
-            
-            do {
-                try moc.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+   
+    private func deleteItems(at offsets: IndexSet) {
+        for index in offsets {
+            let item = items[index]
+            managedObjectContext.delete(item)
         }
+        try? managedObjectContext.save()
     }
+
     
     func submit() {
         print("You entered")
@@ -49,20 +41,14 @@ struct MyListView: View {
                         
                         Spacer()
                         
-                        Menu{
-                     
-                            
-                            
-                            
-                            Button("New Item"){
-                                createNew = true
-                            }
-                            
-                        }label:{
-                            Image(systemName: "plus")
+                        Button("New Wishlist Item"){
+                            createNew = true
                         }
+                        
+                            
+                    
                         .sheet(isPresented: $createNew){
-                            CreateListView()
+                            CreateListView(managedObjectContext: managedObjectContext)
                         }
                         
                         .sheet(isPresented: $presentAlert) {
@@ -96,18 +82,10 @@ struct MyListView: View {
                     Spacer()
                 }
                 .padding(30)
-                .navigationBarTitle("Wishlists")
+                .navigationBarTitle("SmartSight Wishlist")
             }
         }
     }
 }
 
 
-
-
-struct MyListView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyListView()
-            .environmentObject(EnviromentVars())
-    }
-}
